@@ -31,14 +31,14 @@ def input_numbers():
         operator = input("operator(+ - * /): ")
         
         if not (operator in ('+', '-', '*', '/')):
-            print("+ - * / 중에 하나를 입력해주세요.")
-        
+            print("Invalid operator. (+ - * / 중에 하나를 입력해주세요)")
+    
         calc(operator, num1, num2)
     else:
         operator = list[1]
         
         if not (operator in ('+', '-', '*', '/')):
-            print("2번쨰, + - * / 중에 하나를 입력해주세요.")
+            print("Invalid operator. (2번쨰, + - * / 중에 하나를 입력해주세요)")
             return
         
         try:
