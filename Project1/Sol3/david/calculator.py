@@ -19,6 +19,7 @@ def input_numbers():
     
     if not (2 <= len(list) <= 3):
         print("2~3개 숫자나 연산자를 입력해주세요!")
+        return
         
     if len(list) == 2:
         try:
