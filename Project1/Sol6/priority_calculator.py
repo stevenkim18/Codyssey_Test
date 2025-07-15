@@ -1,21 +1,21 @@
-def add(a, b):
+def add(a: float, b: float) -> float:
     return a + b
 
-def subtract(a, b):
+def subtract(a: float, b: float) -> float:
     return a - b
 
-def multiply(a, b):
+def multiply(a: float, b: float) -> float:
     return a * b
 
-def divide(a, b):
+def divide(a: float, b: float) -> float:
     if b == 0:
         raise ZeroDivisionError("Division by zero.")
     return a / b
 
-def parse_expression(expression):
-    tokens = expression.split()
-    numbers = []
-    operators = []
+def parse_expression(expression: str) -> tuple[list[float], list[str]]:
+    tokens: list[str] = expression.split()
+    numbers: list[float] = []
+    operators: list[str] = []
     
     for i, token in enumerate(tokens):
         if i % 2 == 0:
@@ -29,12 +29,12 @@ def parse_expression(expression):
             else:
                 raise ValueError("Invalid input.")
     
-    if not(len(numbers) == len(operators) + 1):
+    if len(numbers) != len(operators) + 1:
         raise ValueError("Invalid input.")
     
     return numbers, operators
 
-def calculate_with_priority(numbers, operators):
+def calculate_with_priority(numbers: list[float], operators: list[str]):
     nums = numbers[:]
     ops = operators[:]
     
@@ -68,14 +68,10 @@ def calculate_with_priority(numbers, operators):
 
 def main():
     try:
-        expression = input("수식을 입력하세요: ")
-        
+        expression: str = input("수식을 입력하세요: ")
         numbers, operators = parse_expression(expression)
-        
         result = calculate_with_priority(numbers, operators)
-        
         print(f"Result: {result}")
-        
     except ZeroDivisionError:
         print("Error: Division by zero.")
     except ValueError:

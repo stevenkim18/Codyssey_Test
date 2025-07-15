@@ -13,7 +13,7 @@ def home():
 
     lang = request.args.get('lang', DEFAULT_LANG)
     fp = BytesIO()
-    gTTS(text, "com", lang).write_to_fp(fp)
+    gTTS(text, "com", lang).write_to_fp(fp) # type: ignore
 
     return Response(fp.getvalue(), mimetype='audio/mpeg') # 페이지 전달없이 바로 재생
 
