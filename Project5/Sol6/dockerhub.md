@@ -1,0 +1,96 @@
+
+### Docker hub 가입 및 토큰 발급
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/09e3db55-f6fb-4ee2-9ea3-d33b76028734/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=863fdb044dc75fb944915fd3f1cbcf1f0e138b118ba497bab05157c6ff053e53&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/797d1bbd-fd33-47d3-8e73-4441558861d5/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=3f0d7dd941d337ce65e52fc7dd87e2e07a3ead0cd6be1d89ed6ca44106f30a7d&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/9f58d0de-af0b-403e-98e8-02fd721ddf9f/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=c881e30b9ed9339ce181e5039f8940c8a776a5037c3a6edac6e3bb979faf3eee&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/3e2750c1-81d5-4ed0-a218-5039d66d6e6b/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=bf67d5234984427d03c564dbf766841f9bc52426a4c16cb81f649546500bf554&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+### 토큰으로 터미널에서 Docker 로그인
+
+
+```python
+$ docker login -u stevenkim18
+
+password: 발급받은 토큰 입력
+```
+
+
+로그인 된거 확인하기
+
+
+```python
+❯ docker login
+Authenticating with existing credentials... [Username: stevenkim18]
+
+i Info → To login with a different account, run 'docker logout' followed by 'docker login'
+
+
+Login Succeeded
+```
+
+- `docker logout` 하면 로그 아웃
+
+### DockerHub에서 레포지토리 만들기
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/c2e82276-92cf-4257-a621-3f00adc2d4aa/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=29c29314f4b307e77a50f001429ab547dfbe706896cacd20d38911093c61a2da&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/b48c6e68-e89e-4e60-aa6f-319a8ce4fbf9/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=6e9b8b9653a35f6aa64396ef669fc82ae3e1c2c6c259aeb445ea943a4ded1691&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/ec4bbe2c-decb-4ff7-8404-aa8c748c87be/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=df7947268e8df9f3f3a9d189102623ac3c1945b99b12b7c52deaf97b09343a7a&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/7fd9cb52-2b22-4f25-a68f-425d0d14f1dc/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065146Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=c81aefc1f5b0df4a626fbc6a757fbb55d6c4ab8ee210ba80ddd812cce241362f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
+### Dockerhub에 저장소에 올리기 위해서 태그 하기
+
+
+```shell
+$ docker tag <로컬에 있는 이미지 이름> <내아이디/레포이름>
+
+$ docker tag daivd:v1.0 stevenkim18/david:v1.0
+
+$ docker images
+REPOSITORY          TAG       IMAGE ID       CREATED        SIZE
+david               v1.0      592c0e9f1998   17 hours ago   241MB
+stevenkim18/david   v1.0      592c0e9f1998   17 hours ago   241MB // 똑같은 이미지 생성됨.
+```
+
+
+### DockerHub에 올리기
+
+
+```shell
+$ docker push stevenkim18/david:v1.0
+The push refers to repository [docker.io/stevenkim18/david]
+7795cbf19271: Pushed
+089697f2e04d: Pushed
+63a0a150e076: Pushed
+b2c031fafe4d: Pushed
+37259e733066: Mounted from library/nginx
+6e88b4602d85: Pushed
+9c3d1dc368c9: Pushed
+cc833abac471: Pushed
+v1.0: digest: sha256:592c0e9f1998a3649fa2a4aa77838ad41996a27bb95a500112768628e88770e8 size: 856
+```
+
+
+docker hub에서 확인
+
+
+[https://hub.docker.com/repository/docker/stevenkim18/david/general](https://hub.docker.com/repository/docker/stevenkim18/david/general)
+
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bc518957-ced6-41d2-aaeb-754bc2ac7595/f16aaa4b-69bc-4600-bf73-3e755f8150fa/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466RN6SJJDU%2F20250723%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250723T065147Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDd4Zw4Dvh6KalE7r1XIK97oeAwBfzE8r2%2BLyYPRawOlAiBleoTPaYT10HZynp0ivpTHkKyh3OkxnLTDWpuZs9fUZSqIBAj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIM7ciwXGSZNmeZn%2FtxKtwDhDnwCTrFZvpJHBeRWtuI8YkNrYPmOZoj2jbOI49Eu9fe3zwn%2Bk9GA00RIi7uUz%2BKXlikdFyq8%2BXuvyr9U4Ofjy6Bh8xo8ueszCKvOgJqmAiQTrgvpv5gUpMZGPZatIkd3XxneRkSiZYVcOngQx0weKAbmC%2B0rOrw1%2BtDtmYnpX8jGIexGm01MdGDIsbgs2sJnVwLQc5WCbV7NtDXfC6S9xlvt2zM3e%2F729rwEjx%2F2fAcpnXa2k6rI5B0Y3s38kHJMHet%2BAzinlnJVBv3TnH2pTcEzk5%2BufysRhEgYRplveF1NMVjYui96e0T5FwY9xIgfzIRAkenZKkGBk8zVS64qRyy8WcjDnQYxRGrAlceA9nkv%2FRyx%2Fkr24z6goDQ7Jt0rGw79CqTs%2F8UczudvS8CAn9VFKJUBSKs1cTno8mo%2Fy8sIvXx%2FWYJ7QtK31WvIPhVw1XkKbCgmPj7EH%2BhHi9%2FdVx%2B08VJfyQfX456odUGJIhuS4hx0APHRdwKWcJhZ9a9CDK8DTDUaB7Ch3ggAxcCuxB0h1SloG9C%2BHSP%2BaX6eZakY2pzt8ZxUvTDzVZyfgFZPH83tJH97RLdGc1yn7iSKzn3i6zZ3OeBVZBye5HO7o5QngqMt406V3hg1Nsw6vOBxAY6pgH1%2BBKDsKSyQT8usHglr%2F2urY6%2FE%2BH8WVA7ZQE1wBxEEsljAEhtIub4cNETOGUvSZfvNGCPcQ7S%2Bkhb3o1iBz5mw4n%2FVWl%2F0OJ4ly79eAs8IzlGD%2Bw10zo3LddcCm%2B22rd0FpN4PRiTJjzb%2BShImL9gyIDrNpjRKCzNkXXmLou7Zj7%2B4Yrlt2E1T%2BcF1qM84GBBA1XVJiJ1kZOw90fF7zX%2FfVHR7jsm&X-Amz-Signature=509ce40dcab4c3ae7b1d044e86d08a0782fbe00a31ae9728af7d2211a8ea548e&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
